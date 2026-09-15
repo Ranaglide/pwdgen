@@ -47,7 +47,10 @@ def get_track_info(track):
         "color": track.derived_colors.average,
         "cover": track.get_cover_url(),
         "has_yandex_lyrics":track.lyrics_info.has_available_text_lyrics,
-        "id":track.id
+        "id":track.id,
+        "album_id":track.albums[0].id,
+        "artist_id":track.artists[0].id,
+        "duration":round(track.duration_ms/1000)
     }
 
 # returns array of jsons for each track found by query
