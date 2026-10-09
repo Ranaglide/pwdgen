@@ -4,6 +4,7 @@ from flask import Flask,request,Response
 from flask_cors import CORS
 import json
 from search import search,get_lyrics
+import db
 from os import getenv
 from dotenv import load_dotenv
 load_dotenv()
@@ -43,6 +44,31 @@ def get_songs():
         ),
     content_type="Application/json"
     )
+
+
+@app.route('/get-passwords')
+def get_passwords():
+
+    if True: # make auth check
+        return Response(
+            json.dumps({
+                "success":True,
+                "message": "List of all passwords",
+                "results": db.get_passwords()
+            }, ensure_ascii=False
+            ), 
+        content_type="Application/json"
+        )
+    return Response(
+        json.dumps({
+            "success":False,
+            "message":'Wrong session'
+        },ensure_ascii=False
+        ),
+    content_type="Application/json"
+    )
+
+
 
 
 if __name__ == '__main__':
