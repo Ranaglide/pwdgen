@@ -7,6 +7,8 @@
     <title>Ranaglide password generator</title>
     <link rel="shortcut icon" href="img/layout/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/settings.js" defer></script>
+    <script src="js/search.js" defer></script>
 </head>
 
 <body>
@@ -23,19 +25,21 @@
             <div class="main__wrapper wrapper">
                 <div class="panel">
                     <h2>Tracks</h2>
-                    <div class="search">
-                        <input type="text" id="search-input">
-                    </div>
+                    <form>
+                        <div class="search">
+                            <input placeholder="tracks to find" type="text" id="search-input">
+                            <button id="find"></button>
+                        </div>
+                    </form>
                     <div class="search__results">
-
-
+                        
                     </div>
                 </div>
                 <div class="panel">
                     <h2>Passwords</h2>
                     <div class="passwords__list">
                         <div class="password__item">
-
+                            <h3>google.com</h3>
                         </div>
                     </div>
                 </div>

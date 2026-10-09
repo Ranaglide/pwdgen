@@ -8,6 +8,8 @@
     --color-bg: #FBFAF5;
     --color-text: #2D3F20;
     --color-header: #6AA886;
+    --color-input: #C7D7CE;
+    --color-placeholder: #707D79;
     --font-heading: "Zen Old Mincho", serif;
     --font-main: "Zen Antique", serif;
     margin: 0;
@@ -57,6 +59,7 @@ header {
     padding: 5px;
     height: 100px;
     background: var(--color-header) url("../img/layout/header-bg.png");
+    background-size: 100%;
 }
 
 
@@ -78,6 +81,98 @@ header {
 
 
 /* Search */
+.search {
+    margin: 5px 0;
+    background-color: var(--color-input);
+    width: 413px;
+    position: relative;
+}
+
+#search-input {
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 3px 10px;
+    background-color: transparent;
+    font-size: 30px;
+    font-family: var(--font-main);
+    color: var(--color-text);
+}
+
+#search-input::placeholder {
+    color: var(--color-placeholder);
+}
+
+#find {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    content: "";
+    width: 25px;
+    height: 25px;
+    transition: .3s;
+    background-image: url("../img/icons/search.svg");
+}
+
+#find:hover {
+    transform: scale(1.05);
+}
+
+#find:active {
+    transform: scale(.95);
+}
+
+/* Tracks */
+.search__results {
+    max-height: 700px;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.result {
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+}
+
+.result:hover .result__button {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+
+.result__button {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 100px));
+    font-size: 20px;
+    position: absolute;
+    transition: .3s;
+    padding: 5px;
+    background-color: var(--color-header);
+    color: var(--color-bg);
+    border: none;
+    padding: 5px 10px;
+    box-shadow: #000c 0 0 100px 40px;
+    top: 50%;
+    z-index: 1;
+    left: 50%;
+    cursor: pointer;
+}
+
+.result__button:hover {
+    transform: translate(-50%, -50%) scale(1.05) !important;
+}
+
+.result__button:active {
+    transform: translate(-50%, -50%) scale(.95) !important;
+}
 
 
 /* Footer */
